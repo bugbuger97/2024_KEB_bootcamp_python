@@ -1,19 +1,21 @@
-# Indentation : 파이썬은 들여쓰기 필수
-# Precedence : 우선 순위 숙지
-# not -> Reverse True == False, Reverse False == True
+# set -> 중복 제거 오름차순 정렬
+def Fahrenheit_Celsius(num):
+    return (num - 32) * (5/9)
+def Celsius_Fahrenheit(num):
+    return (num * (9/5)) + 32
 
-# temp = [0] # 원소가 존재하는 리스트
-# temp = [] # 비어 있는 리스트
-# if temp:
-#     print("원속가 존재하는 리스트")
-# else:
-#     print("비어 있는 리스트")
-
-letter = input('Input alphabet letter : ')
-# vowels = {'a','e','i','o','u'} # set
-vowels = 'aeiou' # str
-print(type(vowels))
-if letter in vowels: # in
-    print(f'{letter} is a vowel')
-else:
-    print(f'{letter} is a consonant')
+if __name__ == '__main__':
+    while True:
+        menu = input('menu : 1) Fahrenheit -> Celsius 2) Celsius -> Fahrenheit 3) Terminated program : ')
+        if menu == '3':
+            print('Terminated program')
+            break
+        else:
+            if menu == '1':
+                num = float(input('Input Fahrenheit : '))
+                print(f'{num}F -> {Fahrenheit_Celsius(num):.2f}C')
+            elif menu == '2':
+                num = float(input('Input Celsius : '))
+                print(f'{num}C -> {Celsius_Fahrenheit(num):.2f}F')
+            else:
+                print('Error')
