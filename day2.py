@@ -1,17 +1,17 @@
-print(int('1A',16)) # 16진수 -> 26
+sum = 1 + \
+    + 2 \
+    + 3
+print(sum)
 
-# 화씨 -> 섭씨
-# 섭씨 -> 화씨
-def Fahrenheit_Celsius(t):
-    if t[-1] == 'F':
-        num = float(t[:-1])
-        return (num-32) * (5/9)
-    else:
-        num = float(t[:-1])
-        return (num*1.8) + 32
+menu = input("1) Fahrenheit -> Celsius   2) Celsius -> Fahrenheit   3) Quit program : ")
 
-if __name__ == '__main__':
-    F = input('Input Fahrenheit : ')
-    C = input('Input Celsius : ')
-    print(f'화씨 : {F}, 섭씨 : {Fahrenheit_Celsius(F):.2f}C')
-    print(f'섭씨 : {C}, 화씨 : {Fahrenheit_Celsius(C):.2f}F')
+if menu == '1':
+    fahrenheit = float(input('Input Fahrenheit : '))
+    print(f'Fahrenheit : {fahrenheit}F, Celsius : {((fahrenheit-32.0)*5.0/9.0):.4f}C')
+elif menu == '2':
+    celsius = float(input('Input Celcius : '))
+    print(f'Celsius : {celsius}C, Fahrenheit : {((celsius*9.0/5.0)+32.0):.4f}F')
+elif menu == '3':
+    print('Quit program')
+else:
+    print('Error')
