@@ -1,17 +1,19 @@
-sum = 1 + \
-    + 2 \
-    + 3
-print(sum)
+# Indentation : 파이썬은 들여쓰기 필수
+# Precedence : 우선 순위 숙지
+# not -> Reverse True == False, Reverse False == True
 
-menu = input("1) Fahrenheit -> Celsius   2) Celsius -> Fahrenheit   3) Quit program : ")
+# temp = [0] # 원소가 존재하는 리스트
+# temp = [] # 비어 있는 리스트
+# if temp:
+#     print("원속가 존재하는 리스트")
+# else:
+#     print("비어 있는 리스트")
 
-if menu == '1':
-    fahrenheit = float(input('Input Fahrenheit : '))
-    print(f'Fahrenheit : {fahrenheit}F, Celsius : {((fahrenheit-32.0)*5.0/9.0):.4f}C')
-elif menu == '2':
-    celsius = float(input('Input Celcius : '))
-    print(f'Celsius : {celsius}C, Fahrenheit : {((celsius*9.0/5.0)+32.0):.4f}F')
-elif menu == '3':
-    print('Quit program')
+letter = input('Input alphabet letter : ')
+# vowels = {'a','e','i','o','u'} # set
+vowels = 'aeiou' # str
+print(type(vowels))
+if letter in vowels: # in
+    print(f'{letter} is a vowel')
 else:
-    print('Error')
+    print(f'{letter} is a consonant')
