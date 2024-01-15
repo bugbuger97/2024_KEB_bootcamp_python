@@ -1,6 +1,17 @@
+print(int('1A',16)) # 16진수 -> 26
+
 # 화씨 -> 섭씨
-def Fahrenheit_Celsius(F):
-    return (F-32) * (5/9)
-F = float(input('Input Fahrenheit : '))
-print('화씨 : %dF, 섭씨 : %0.3fC' %(F,Fahrenheit_Celsius(F)))
-print(f'화씨 : {F}F, 섭씨 : {Fahrenheit_Celsius(F):.3f}C') # f-string 소수점 자릿수 설정 -> :.3f이다.
+# 섭씨 -> 화씨
+def Fahrenheit_Celsius(t):
+    if t[-1] == 'F':
+        num = float(t[:-1])
+        return (num-32) * (5/9)
+    else:
+        num = float(t[:-1])
+        return (num*1.8) + 32
+
+if __name__ == '__main__':
+    F = input('Input Fahrenheit : ')
+    C = input('Input Celsius : ')
+    print(f'화씨 : {F}, 섭씨 : {Fahrenheit_Celsius(F):.2f}C')
+    print(f'섭씨 : {C}, 화씨 : {Fahrenheit_Celsius(C):.2f}F')
