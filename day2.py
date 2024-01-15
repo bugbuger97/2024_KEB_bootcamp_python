@@ -1,12 +1,20 @@
-base_number = int(input('Input base number : '))
-exponent_number = int(input('Input exponent number : '))
+a = 100
+a -= 3 # side effect : 메모리 값의 변화
+print(a)
 
-# f-string
-print(f'밑은 {base_number}, 지수는{exponent_number}, 결과 값은 {pow(base_number, exponent_number)}')
+# first_number = int(input("First number : "))
+# second_number = int(input("Second number : "))
+#
+# quotient = first_number // second_number
+# remainder = first_number % second_number
+# print(f'몫은 {quotient}, 나머지는 {remainder}입니다.')
 
-# format function -> {}안에 0,1,2를 넣어서 출력할 변수의 순서를 정할 수 있다.
-print('밑은 {}, 지수는{}, 결과 값은 {}'.format(base_number,exponent_number,pow(base_number, exponent_number)))
-print('밑은 {0}, 지수는{1}, 결과 값은 {2}'.format(base_number,exponent_number,pow(base_number, exponent_number)))
+def divmod(first_number, second_number):
+    quotient = first_number // second_number
+    remainder = first_number % second_number
+    return (quotient, remainder)
 
-# like C
-print('밑은 %d, 지수는 %d, 결과 값은 %d' %(base_number, exponent_number, pow(base_number, exponent_number)))
+if __name__ == '__main__':
+    first_number = int(input("First number : "))
+    second_number = int(input("Second number : "))
+    print(f'몫은 {divmod(first_number, second_number)[0]}, 나머지는 {divmod(first_number, second_number)[1]}입니다.')
