@@ -1,18 +1,16 @@
-# strings in Python are immutable
-# r'contents' : 특수 기호 등 날 것 그대로의 형태를 출력함
-university = r"Inha\nuniversity!" # raw string
-#print(university)
+# string split
+course = "2024 KEB bootcamp"
+print(course)
+print(course.split()) # split의 구분자 ' '(스페이스 바)이다.
+print(course.split('B')) # split의 구분자 'B'이다.
 
-# num1 = input("First number : ")
-# num2 = input("Second number : ")
-# print(num1 + num2) # concatenation
-# print(num1 * 3) # duplicate
-# print(num1 + 3) # error
+# numbers = input('FirstNumber SecondNumber : ').split() # type -> list
+# print(numbers)
+# print(numbers[0] + numbers[1]) # concatenation
+# print(int(numbers[0]) + int(numbers[1])) # arithmetic operation
 
-# string slicing
-print(university[:4])
-print(university[:-13])
-print(university[3::-1])
-print(university[6:16])
-print(university[11:-4])
-print(university[-2:-1])
+# join() : list -> string
+# '원소 사이에 집어 넣을 문자'.join(문자열로 바꿀 리스트)
+subjects = ['python','c++','database']
+subjects_string = ' / '.join(subjects)
+print(subjects_string)
