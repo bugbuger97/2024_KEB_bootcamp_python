@@ -1,11 +1,8 @@
-while True:
-    menu = input("1) Fahrenheit -> Celsius   2) Celsius -> Fahrenheit   3) Quit program : ")
-    if menu == '1':
-        fahrenheit = float(input('Input Fahrenheit : '))
-        print(f'Fahrenheit : {fahrenheit}F, Celsius : {((fahrenheit-32.0)*5.0/9.0):.4f}C')
-    elif menu == '2':
-        celsius = float(input('Input Celcius : '))
-        print(f'Celsius : {celsius}C, Fahrenheit : {((celsius*9.0/5.0)+32.0):.4f}F')
-    elif menu == '3':
-        print('Terminate program')
-        break
+# strings in Python are immutable
+# r'contents' : 특수 기호 등 날 것 그대로의 형태를 출력함
+university = r"Inha\nuniversity!" # raw string
+print(university)
+
+num1 = input("First number : ")
+num2 = input("Second number : ")
+print(num1 + num2) # concatenation
