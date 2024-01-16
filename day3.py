@@ -8,7 +8,7 @@ if n1 > n2:
 for number in range(n1, n2+1):
     is_prime = True
     if number < 2:
-        pass
+        pass # continue
     else:
         for i in range(2, number):
             if number % i == 0:
