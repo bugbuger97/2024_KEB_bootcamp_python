@@ -1,23 +1,14 @@
-# while - else문 가능 -> while문 안에 break가 실행되지 않으면 else구문이 실행됨.
-strings = 'abcdefghijklmnopqrstuvwxyz'
-for i in strings:
-    print(i)
-print('\n') # 2칸 띄우기
+def judge_prime(number):
+    if number != 1:
+        for i in range(2,number):
+            if number % i == 0:
+                return False
+        return True
 
-univ = 'inha'
-i=0
-while i < len(univ):
-    print(univ[i], end=' ')
-    i+=1
 
-print()
-
-for letter in univ:
-    print(letter, end=' ')
-
-print()
-
-# for k in range(0,len(univ),1):
-# for k in range(0,len(univ)):
-for k in range(len(univ)):
-    print(univ[k], end=' ')
+if __name__ == '__main__':
+    number = int(input('Input Number : '))
+    if judge_prime(number):
+        print(f'{number} is prime number')
+    else:
+        print(f'{number} is not prime number')
