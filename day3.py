@@ -1,14 +1,17 @@
-def prime(num1, num2):
-    if num1 > num2:
-        num1, num2 = num2, num1
-    prime_number = list(range(num1 + 1, num2))
-    for i in range(num1+1, num2):
-        for j in range(2,i):
-            if i % j == 0:
-                prime_number.remove(i)
-                break
-    return prime_number
+# prime number
+numbers = input("Input first second number : ").split()
+n1 = int(numbers[0])
+n2 = int(numbers[1])
+if n1 > n2:
+    n1, n2 = n2, n1
 
-if __name__ == '__main__':
-    num1,num2 = input('Input Num1, Num2 : ').split()
-    print(*prime(int(num1), int(num2)))
+for number in range(n1, n2+1):
+    is_prime = True
+    if number < 2:
+        pass
+    else:
+        for i in range(2, number):
+            if number % i == 0:
+                is_prime = False
+                break
+        if is_prime: print(number, end=' ')
