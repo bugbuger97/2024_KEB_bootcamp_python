@@ -1,38 +1,33 @@
-import random
-drinks_foods = {"위스키": "초콜릿", "와인": "치즈", "소주": "삽겹살", "고량주": "양꼬치"}
-print(drinks_foods)
-print(drinks_foods.pop("고량주"))
-print(drinks_foods)
+# 8.1
+e2f = dict(dog='chien',cat='chat',walrus='morse')
+print(e2f)
 
-#del drinks_foods["위스키"]
-#drinks_foods["사케"] = "광어회"
-japan_drinks_foods = {"사케": "광어회", "위스키": "낙곱새"}
-drinks_foods.update(japan_drinks_foods) # dict update
-print(drinks_foods)
+# 8.2
+print(e2f['walrus'])
 
-# drink = input(drinks_foods.keys())
-drinks_foods_keys = list(drinks_foods) # 키만 리스트화 됨.
-print(drinks_foods_keys)
-print(drinks_foods_keys.pop(1)) # 와인 출력하면서 제거
-print(drinks_foods_keys.remove("위스키")) # 위스키 바로 제거
-print(drinks_foods_keys) # ['소주', '사케']
-# print(random.choice(drinks_foods_keys))
+# 8.3
+f2e = {v:k for k,v in e2f.items()}
+print(f2e)
 
-# while True:
-#     menu = input(f'다음 술중에 고르세요.\n1) {drinks_foods_keys[0]}   2) {drinks_foods_keys[1]}   3) {drinks_foods_keys[2]}   4) {drinks_foods_keys[3]}   5) {drinks_foods_keys[4]}   6) 아무거나   7) 종료 : ')
-#     if menu == '1':
-#         print(f'{drinks_foods_keys[0]}에 어울리는 안주는 {drinks_foods[drinks_foods_keys[0]]} 입니다')
-#     elif menu == '2':
-#         print(f'{drinks_foods_keys[1]}에 어울리는 안주는 {drinks_foods[drinks_foods_keys[1]]} 입니다')
-#     elif menu == '3':
-#         print(f'{drinks_foods_keys[2]}에 어울리는 안주는 {drinks_foods[drinks_foods_keys[2]]} 입니다')
-#     elif menu == '4':
-#         print(f'{drinks_foods_keys[3]}에 어울리는 안주는 {drinks_foods[drinks_foods_keys[3]]} 입니다')
-#     elif menu == '5':
-#         print(f'{drinks_foods_keys[4]}에 어울리는 안주는 {drinks_foods[drinks_foods_keys[4]]} 입니다')
-#     elif menu == '6':
-#         random_drink = random.choice(drinks_foods_keys)
-#         print(f'{random_drink}에 어울리는 안주는 {drinks_foods[random_drink]} 입니다')
-#     elif menu == '7':
-#         print(f'다음에 또 오세요')
-#         break
+# 8.4
+print(f2e.get('chien'))
+
+# 8.5
+print(e2f.keys())
+
+# 8.6
+life = dict(animals=dict(cats='Henri',octopi='Grumpy',emus='Lucy'),plants=dict(),other=dict())
+print(life)
+
+# 8.7
+print(life.keys())
+
+# 8.8
+print(life['animals'].keys())
+
+# 8.9
+print(life['animals']['cats'])
+
+# 8.10
+squares = {i: i**2 for i in range(10)}
+print(squares)
