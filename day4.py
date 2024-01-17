@@ -1,12 +1,22 @@
-# dict : mutable
-acme_customer = dict(first='Wile',second='E',last='Coyote') # key에 예약어 같은 이름을 넣을 수 없다.
-print(acme_customer)
+sugang = dict(python='kim',db='kang',cpp='sung')
+# print(sugang)
+# sugang['datastructure'] = 'kim' # add
+# print(sugang)
+# sugang['datastructure'] = 'park' # update
+# print(sugang)
+# print(sugang['db'])
+# print(sugang.get('db'))
+# print(sugang.get('opensource'))
+# print(sugang.get('opensource','Not exist'))
 
-lol = [[1,2],[3,4],[5,6]]
-print(dict(lol))
+for subject,professor in sugang.items():
+    print(f'{subject} 과목 담당 교수는 {professor}입니다.') # 버전에 따라서 순서가 섞여서 나올 수도 있다.
 
-lol = ([1,2],[3,4],[5,6])
-print(dict(lol))
+for k in sugang.keys():
+    print(k)
 
-lol = ['ab','cd','ef']
-print(dict(lol))
+for v in sugang.values():
+    print(v)
+
+for v in sugang.items():
+    print(v)
