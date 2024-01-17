@@ -1,22 +1,19 @@
-sugang = dict(python='kim',db='kang',cpp='sung')
-# print(sugang)
-# sugang['datastructure'] = 'kim' # add
-# print(sugang)
-# sugang['datastructure'] = 'park' # update
-# print(sugang)
-# print(sugang['db'])
-# print(sugang.get('db'))
-# print(sugang.get('opensource'))
-# print(sugang.get('opensource','Not exist'))
+drinks_foods = {"위스키": "초콜릿", "와인": "치즈", "소주": "삽겹살", "고량주": "양꼬치"}
 
-for subject,professor in sugang.items():
-    print(f'{subject} 과목 담당 교수는 {professor}입니다.') # 버전에 따라서 순서가 섞여서 나올 수도 있다.
+#drink = input(drinks_foods.keys())
+drinks_foods_keys = list(drinks_foods)
+#print(drinks_foods_keys)
 
-for k in sugang.keys():
-    print(k)
-
-for v in sugang.values():
-    print(v)
-
-for v in sugang.items():
-    print(v)
+while True:
+    menu = input(f'다음 술중에 고르세요.\n1) {drinks_foods_keys[0]}   2) {drinks_foods_keys[1]}   3) {drinks_foods_keys[2]}   4) {drinks_foods_keys[3]}   5) 종료 : ')
+    if menu == '1':
+        print(f'{drinks_foods_keys[0]}에 어울리는 안주는 {drinks_foods[drinks_foods_keys[0]]} 입니다')
+    elif menu == '2':
+        print(f'{drinks_foods_keys[1]}에 어울리는 안주는 {drinks_foods[drinks_foods_keys[1]]} 입니다')
+    elif menu == '3':
+        print(f'{drinks_foods_keys[2]}에 어울리는 안주는 {drinks_foods[drinks_foods_keys[2]]} 입니다')
+    elif menu == '4':
+        print(f'{drinks_foods_keys[3]}에 어울리는 안주는 {drinks_foods[drinks_foods_keys[3]]} 입니다')
+    elif menu == '5':
+        print(f'다음에 또 오세요')
+        break
