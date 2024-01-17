@@ -1,42 +1,29 @@
-# Assignment (add prime series program)
-def is_prime(number):
-    for i in range(2, number):
-        if number % i == 0:
-            return False
-    return True
+# Tuple
+t1 = (5)
+t2 = 5,
+t3 = (5,)
+t4 = (5,7)
+t5 = 5,7
+print(type(t1),type(t2),type(t3),type(t4),type(t5))
+t6 = "python", "kim" # 이것을 packing이라고 함.
+print(type(t6), t6[1])
 
-if __name__ == "__main__":
-    while True:
-        menu = input("1) Fahrenheit -> Celsius   2) Celsius -> Fahrenheit   3) Prime1   4) Prime2   5) Quit program : ")
-        if menu == '1':
-            fahrenheit = float(input('Input Fahrenheit : '))
-            print(f'Fahrenheit : {fahrenheit}F, Celsius : {((fahrenheit-32.0)*5.0/9.0):.4f}C')
-        elif menu == '2':
-            celsius = float(input('Input Celsius : '))
-            print(f'Celsius : {celsius}C, Fahrenheit : {((celsius*9.0/5.0)+32.0):.4f}F')
-        elif menu == '3':
-            number = int(input("Input number : "))
-            if number < 2:
-                print(f'{number} is NOT prime number!')
-            else:
-                if is_prime(number):
-                    print(f'{number} is prime number')
-                else:
-                    print(f'{number} is NOT prime number!')
-        elif menu == '4':
-            numbers = input("Input first second number : ").split()
-            n1 = int(numbers[0])
-            n2 = int(numbers[1])
-            if n1 > n2:
-                n1, n2 = n2, n1
-            for number in range(n1, n2 + 1):
-                if number < 2:
-                    continue # pass
-                else:
-                    if is_prime(number): print(number, end=' ')
-            print()
-        elif menu == '5':
-            print('Terminate Program.')
-            break
-        else:
-            print('Invalid Menu!')
+subject, prof = t6 # unpacking -> unpacking할 때, 정확히 개수가 맞아야 한다.
+print(prof) # kim
+print(subject) # python
+
+t7 = ()
+t8 = tuple()
+print(type(t7),type(t8))
+
+t9 = ('abc')
+print(type(t9)) # str
+
+print(type(9,), type(((9,)))) # int, tuple
+
+# tuple간의 비교 연산이 가능함.
+# '+' 연산으로 튜플간의 합치기 가능함.
+t10 = 4.43,
+t11 = 3.97, 4.1, 3.27
+print(t10+t11) # (4.43, 3.97, 4.1, 3.27)
+print(t11+t10) # (3.97, 4.1, 3.27, 4.43)
