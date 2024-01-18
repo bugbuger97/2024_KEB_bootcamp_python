@@ -1,9 +1,24 @@
-# 매개변수(parameter) : 함수의 정의에서 전달받은 인수를 함수 내부로 전달하기 위해 사용하는 변수를 의미함.
-# 인수(argument) : 함수가 호출될 때 함수로 값을 전달해주는 값임.
+# None : 아무 것도 없다는 것을 뜻하는 special value
+# None과 False는 완전히 다른 것임.
+thing = [None,False,True,'',(),[],0,0.0,set()]
 
-def my_print(sometihing): # something -> 매개변수(parameter)
-    print(sometihing + ' ' + sometihing)
+for i in thing:
+    if i is None:
+        print(f'{i} is nothing')
+    elif i:
+        print(f'{i} is True')
+    else:
+        print(f'{i} is False')
 
-my_print('Inha University') # 'Inha University' -> 인수(argument)
-
-# 함수 외부에서는 인수라고 하지만 내부에서는 매개변수하고 함.
+'''
+None is nothing
+False is False
+True is True
+ is False
+() is False
+[] is False
+0 is False
+0.0 is False
+set() is False
+위 결과 값이 출력된다.
+'''
