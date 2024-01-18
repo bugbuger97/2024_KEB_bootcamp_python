@@ -41,11 +41,19 @@ print(sc)
 print(dc)
 # Shallow copy, Deep copy 모두 동일하게 동작함.
 
+print('\n')
 # Case4 : mutable 객체안에 immutable객체가 포함되어 있을 시
 origin = (1,2)
 target = [origin, 3]
 sc = copy.copy(target) # shallow copy
 dc = copy.deepcopy(target) # deep copy
 # shallow copy, deep copy 모두 origin 튜플을 참조함.
+print(target) # [(1, 2), 3]
+print(sc) # [(1, 2), 3]
+print(dc) # [(1, 2), 3]
+target[1] = 5
+print(target) # [(1, 2), 5]
+print(sc) # [(1, 2), 3]
+print(dc) # [(1, 2), 3]
 
 
