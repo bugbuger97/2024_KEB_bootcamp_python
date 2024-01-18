@@ -1,37 +1,24 @@
-# two asterisks (**) -> 딕셔너리로 취급함.
-def print_kwargs(**kwargs):
-    print('Keyword argument :',kwargs)
+# 내부 함수 : 반복문이나 코드 중복을 피하고자 또 다른 함수 내에 어떤 복잡한 작업을 1번 이상 수행할 때, 유용하게 사용됨.
+def Two_Input(a,b):
+    def Add(c,d):
+        return c+d
+    return Add(a,b)
 
-print_kwargs() # {} -> dict
+print(Two_Input(1,2))
 
-# 인수의 순서에 대한 우선 순위 : positional arguments > *args > **kwargs
+# Closures : 다른 함수에 의해서 동적으로 생성됨.
+# def out_func(n_out): # 내부 함수 활용
+#     def inner_func(n_in):
+#         return n_in * n_in
+#     return inner_func(n_out)
+# print(out_func(5))
 
-# help(len) == print(len.__doc__)
-print(len.__doc__)
+def out_func(n_out): # 클로저 활용
+    def inner_func():
+        return n_out * n_out
+    return inner_func
+x = out_func(5)
+print(type(x))
+print(x)
+print(x())
 
-# 파이썬은 모든 것이 객체이다.
-
-def squares(n):
-    return n*n
-
-def run_function(f,number):
-    return f(number)
-
-print(squares(7))
-print(run_function(squares,9))
-
-# 함수 안에 인수가 몇 개가 올지 예측이 되지 않을 떄는 가변 매개변수를 쓰는 것이 좋다.
-def n_squares(*n) -> list: # n == tuple type
-    '''
-    넘겨 받은 수치 데이터들의 거듭 제곱 값을 리스트에 담아서 리턴
-    :param n: tuple
-    :return: list
-    '''
-    return [i*i for i in n]
-    #return n*n
-
-def n_run_function(f,*number) -> list:
-    return f(*number)
-
-print(*n_squares(8,2,3,9,5)) # 64 4 9 81 25
-print(n_run_function(n_squares,9,10))
