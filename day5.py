@@ -1,26 +1,27 @@
-# Inner function(내부 함수) : 반복문이나 코드 중복을 피하고자 또 다른 함수 내에 어떤 복잡한 작업을 1번 이상 수행할 때 유용하게 사용됨.
-def Out(a,b):
-    def In(c,d):
-        return c+d
-    return In(a,b)
-print(Out(10,19))
+# generator(iterator에 대한 데이터의 소스로 자주 사용됨) : 시퀀스를 생성하는 객체, 전체 시퀀스를 한 번에 메모리에 생성하고 큰 시퀀스 순회 가능.
+# range -> generator 중 하나
+result=sum(range(1,101))
+print(result)
+# 제너레이터를 순회할 때마다 마지막으로 호출된 항목을 기억하고 다음 값을 반환함.
 
-# Closure(클로저) : 다른 함수에 의해 동적으로 생성되는데, 외부 함수로부터 생성된 변수값을 변경하고, 저장할 수 있는 함수임.
-# 어떤 함수의 내부 함수가 외부 함수의 변수를 참조할 때, 외부 함수가 종료된 후에도 내부 함수가 외부 함수의 변수를 참조할 수 있도록 어딘가에 저장하는 함수임.
-def script(saying):
-    def In():
-        return f'{saying} : I want to go home!!!!!!'
-    return In
-I = script('INHA') # 클로저 생성
-ME = script('ME')
-print(I)
-print(I())
-print(type(I))
+# generator founction : 일반 함수이지만, return문으로 값을 반환하지 않고 yield문으로 값을 반환함.
+def my_range(first=10,last=0,step=-1):
+    n = first
+    while n > last:
+        yield n # generator에서는 return 대신 yield를 씀.
+        n += step
 
-print('\n')
+x = my_range()
+print(x)
+print(type(x))
+for i in x:print(i)
+for i in x:print(i) # nothing : 제너레이터는 한번만 순회할 수 있음. (값을 기억이나 저장하지 않음)
 
-print(ME)
-print(ME())
-print(type(ME))
-# 클로저 조건 : 1. 어떤 함수는 내부 함수를 가질것, 2. 그 내부 함수가 외부 함수를 참조할 것, 3. 외부 함수가 내부 함수를 리턴할 것.
-# 클로저를 쓰는 이유 : 전역변수의 남용 방지를 위해서
+# generator comprehensions
+# Generator = (i for i in [1,2,3,4,5,6])
+# Generator = (i for i in range(1,10))
+Generator = (i for i in zip([1,2,3,4,5],[2,4,8,16,32]))
+print(type(Generator))
+print(Generator)
+for i in Generator:
+    print(i)
