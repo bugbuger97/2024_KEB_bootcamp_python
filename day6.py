@@ -1,19 +1,22 @@
-# Open Closed Principle
-def test(f):
-    '''
-    데코레이터 함수, 함수 시작하면 start 출력, 함수 끝나면 end 출력
-    :param f: function
-    :return: closure function
-    '''
-    def test_in(*args,**kwargs): # 가변 매개변수이기 때문에 값이 오지 않아도 동작을 함.
-        print('start')
-        #result = f(*args,**kwargs)
-        f()
-        print('end')
-        #return result
-    return test_in
-@test
-def greeting():
-    print('안녕하세요~')
+# 데코레이터를 여러 개를 붙일 수 있음.
 
-greeting()
+# Recursion
+def factorial_repetition(n) -> int:
+    result = 1
+    for i in range(2,n+1):
+        result = result * i
+    return result
+
+def factorial_recursion(n) -> int:
+    '''
+    재귀함수를 사용한 팩토리얼 함수
+    :param n: 정수
+    :return: function, int
+    '''
+    if n == 1:
+        return n
+    else:
+        return n*factorial_recursion(n-1)
+
+print(factorial_repetition(5))
+print(factorial_recursion(6)) # 재귀는 반복문보다 속도가 느리다
