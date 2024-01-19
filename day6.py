@@ -13,13 +13,15 @@ class Pokemon:
     def attack(self):
         print("공격~")
 
-    def get_name(self):
+    @property
+    def name(self):
         return self.hidden_name
 
-    def set_name(self, new_name):
+    @name.setter
+    def name(self, new_name):
         self.hidden_name = new_name
 
-    name = property(get_name, set_name)
+    #name = property(get_name, set_name)
 
 
 class Charizard(Pokemon, FlyingMixin):
@@ -35,7 +37,7 @@ c1 = Charizard("리자몽")
 # g1.set_name("잉어킹")
 # print(g1.get_name())
 
-# property
+# property 2nd
 print(g1.name)
 g1.name = "잉어킹"
 print(g1.name)
