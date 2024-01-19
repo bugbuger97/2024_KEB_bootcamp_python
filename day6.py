@@ -8,6 +8,15 @@ class SwimmingMixin:
 class Pokemon:
     def __init__(self,name):
         self.name = name
+    def attack(self):
+        print('공격')
+    def get_name(self):
+        print("inside getter")
+        return self.name
+    def set_name(self,new_name):
+        print("inside setter")
+        self.name = new_name
+        return
 class Charizard(Pokemon,FlyingMixin):
     pass
 class Gyarados(Pokemon,SwimmingMixin):
@@ -15,5 +24,14 @@ class Gyarados(Pokemon,SwimmingMixin):
 
 g1 = Gyarados("갸라도스")
 c1 = Charizard("리자몽")
-print(g1.swim())
-print(c1.fly())
+# print(g1.swim())
+# print(c1.fly())
+# c1.attack()
+# Charizard.attack(c1) # ()안에 객체가 와줘야 함.
+print(g1.name)
+g1.name = '잉어킹' # direct access(위험할 수도 있음.)
+print(g1.name)
+
+print(g1.get_name())
+g1.set_name('잉어')
+print(g1.get_name())
