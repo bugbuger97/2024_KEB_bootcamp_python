@@ -1,27 +1,31 @@
-# generator(iterator에 대한 데이터의 소스로 자주 사용됨) : 시퀀스를 생성하는 객체, 전체 시퀀스를 한 번에 메모리에 생성하고 큰 시퀀스 순회 가능.
-# range -> generator 중 하나
-result=sum(range(1,101))
-print(result)
-# 제너레이터를 순회할 때마다 마지막으로 호출된 항목을 기억하고 다음 값을 반환함.
+# 객체 지향 프로그래밍 규칙 : 확장은 열려있고, 수정은 닫혀있다. 즉 decorator는 기존의 코드를 바꾸지 않고 함수를 확장할 때 사용함.
+# decorator : 하나의 함수를 취해서 또 다른 함수를 반환하는 함수임.
+# decorator인 함수는 1. 함수 이름과 인수를 출력함 -> 2. 인수로 함수를 실행함. -> 결과를 출력함. -> 수정된 함수를 사용하도록 반환함.
+def document_in(f):
+    def new_func(*args,**kwargs):
+        print('Running function :',f.__name__)
+        print('Positional arguments :',args)
+        print('Keyword arguments :',kwargs)
+        result=f(*args,**kwargs)
+        print('Result :',result)
+        return result
+    return new_func
+@document_in
+def power(n) -> int:
+    '''
+    거듭제곱
+    :param n: 정수
+    :return: 정수^2
+    '''
+    return pow(n,2)
+@document_in
+def Add(a,b) -> int:
+    '''
+    덧셈
+    :param a: 정수 a
+    :param b: 정수 b
+    :return: a + b
+    '''
+    return a+b
 
-# generator founction : 일반 함수이지만, return문으로 값을 반환하지 않고 yield문으로 값을 반환함.
-def my_range(first=10,last=0,step=-1):
-    n = first
-    while n > last:
-        yield n # generator에서는 return 대신 yield를 씀.
-        n += step
-
-x = my_range()
-print(x)
-print(type(x))
-for i in x:print(i)
-for i in x:print(i) # nothing : 제너레이터는 한번만 순회할 수 있음. (값을 기억이나 저장하지 않음)
-
-# generator comprehensions
-# Generator = (i for i in [1,2,3,4,5,6])
-# Generator = (i for i in range(1,10))
-Generator = (i for i in zip([1,2,3,4,5],[2,4,8,16,32]))
-print(type(Generator))
-print(Generator)
-for i in Generator:
-    print(i)
+print(Add(1,199))
