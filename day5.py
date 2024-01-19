@@ -1,31 +1,32 @@
-# 객체 지향 프로그래밍 규칙 : 확장은 열려있고, 수정은 닫혀있다. 즉 decorator는 기존의 코드를 바꾸지 않고 함수를 확장할 때 사용함.
-# decorator : 하나의 함수를 취해서 또 다른 함수를 반환하는 함수임.
-# decorator인 함수는 1. 함수 이름과 인수를 출력함 -> 2. 인수로 함수를 실행함. -> 결과를 출력함. -> 수정된 함수를 사용하도록 반환함.
-def document_in(f):
-    def new_func(*args,**kwargs):
-        print('Running function :',f.__name__)
-        print('Positional arguments :',args)
-        print('Keyword arguments :',kwargs)
-        result=f(*args,**kwargs)
-        print('Result :',result)
-        return result
-    return new_func
-@document_in
-def power(n) -> int:
-    '''
-    거듭제곱
-    :param n: 정수
-    :return: 정수^2
-    '''
-    return pow(n,2)
-@document_in
-def Add(a,b) -> int:
-    '''
-    덧셈
-    :param a: 정수 a
-    :param b: 정수 b
-    :return: a + b
-    '''
-    return a+b
+# 9.1
+def good(*args):
+    List=list(args)
+    print(List)
+    return List
+good('Harry','Ron','Hermione')
 
-print(Add(1,199))
+# 9.2
+def gets_odds():
+    odds = [i for i in range(10) if i%2==1]
+    for i in odds:
+        yield i
+something = gets_odds()
+print(something)
+cnt=0
+for i in something:
+    cnt+=1
+    if cnt == 3:
+        print(f'세번째 홀수 : {i}')
+
+# 9.3
+def test(f):
+    def inner(*args):
+        print('Start')
+        print(f(*args))
+        print('end')
+    return inner
+@test
+def my_int_print(a):
+    return a
+
+my_int_print(1)
