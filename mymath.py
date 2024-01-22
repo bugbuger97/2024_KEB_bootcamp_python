@@ -31,3 +31,11 @@ def celsius_to_fahrenheit(celsius) -> float:
     :return: fahrenheit temperature
     """
     return (celsius*9.0/5.0)+32.0
+
+def power(n) -> int:
+    '''
+    power
+    :param n: int
+    :return: n^2
+    '''
+    return n*n
