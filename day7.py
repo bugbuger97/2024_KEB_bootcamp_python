@@ -1,38 +1,61 @@
-# module
-from mymath import isprime, fahrenheit_to_celsius, celsius_to_fahrenheit
-# import mymath as mm
-# from mymath import *
-# import mymath
+# 10.1
+class Thing:
+    def __init__(self,name="None"):
+        self.name = name
+    def __str__(self):
+        return self.name
+example1 = Thing()
+example2 = Thing()
+print(example1)
+print(example2)
 
-while True:
-    menu = input("1) Fahrenheit -> Celsius   2) Celsius -> Fahrenheit   3) Prime1   4) Prime2   5) Quit program : ")
+# 10.2
+class Thing2:
+    def __init__(self,letters):
+        self.letters = letters
+    def __str__(self):
+        return self.letters
+ex = Thing2('abc')
+print(ex)
 
-    if menu == '1':
-        fahrenheit = float(input('Input Fahrenheit : '))
-        print(f'Fahrenheit : {fahrenheit}F, Celsius : {fahrenheit_to_celsius(fahrenheit):.4f}C')
-    elif menu == '2':
-        celsius = float(input('Input Celsius : '))
-        print(f'Celsius : {celsius}C, Fahrenheit : {celsius_to_fahrenheit(celsius):.4f}F')
-    elif menu == '3':
-        number = int(input("Input number : "))
-        if isprime(number):
-            print(f'{number} is prime number')
-        else:
-            print(f'{number} is NOT prime number!')
-    elif menu == '4':
-        numbers = input("Input first second number : ").split()
-        n1 = int(numbers[0])
-        n2 = int(numbers[1])
+# 10.4
+class Element:
+    def __init__(self,name,symbol,number):
+        self.name = name
+        self.symbol = symbol
+        self.number = number
+    def __str__(self):
+        return f'{self.name}, {self.symbol}, {self.number}'
+    def dump(self):
+        return (self.name,self.symbol,self.number)
 
-        if n1 > n2:
-            n1, n2 = n2, n1
+element = Element('Hydrogen','H',1)
+print(element.name)
+print(element.symbol)
+print(element.number)
 
-        for number in range(n1, n2 + 1):
-            if isprime(number):
-                print(number, end=' ')
-        print()
-    elif menu == '5':
-        print('Terminate Program.')
-        break
-    else:
-        print('Invalid Menu!')
+# 10.5
+el_dict = dict(name='Hydrogen',symbol='H',number=1)
+ex_element = Element(list(el_dict.values())[0],list(el_dict.values())[1],list(el_dict.values())[2])
+
+# 10.6
+ex2_element = Element('Hydrogen','H',1)
+print(ex2_element.dump())
+
+# 10.7
+ex3_element = Element('Hydrogen','H',1)
+print(ex3_element)
+
+# 10.8
+class Element:
+    def __init__(self,name,symbol,number):
+        self.__name = name
+        self.__symbol = symbol
+        self.__number = number
+    @property
+    def name(self):
+        return f'{self.__name}'
+    @name.setter
+    def name(self,name):
+        self.__name = name
+
